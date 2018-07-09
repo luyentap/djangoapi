@@ -25,7 +25,7 @@ SECRET_KEY = 'yl9*mcey*2$0uk30$=a77$xsp%wpq2ptnu+&h1e+lqs6=2&+pj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-api-2-gaga2017.c9users.io','testserver']
 
 
 # Application definition
@@ -40,10 +40,15 @@ INSTALLED_APPS = [
     
     'practice.apps.PracticeConfig',
     'tastypie',
+    'django_nose',
     
     
 ]
-
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+     #'--with-coverage',#,'--logging-format',
+    '--cover-package=practice,api,djangoapi',
+]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
